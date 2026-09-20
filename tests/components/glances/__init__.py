@@ -44,6 +44,10 @@ HA_SENSOR_DATA: dict[str, Any] = {
         "memory_free": 2745.0,
     },
     "docker": {"docker_active": 2, "docker_cpu_use": 77.2, "docker_memory_use": 1149.6},
+    "containers": {
+        "homeassistant": {"container_cpu_use": 66.1, "container_memory_use": 1000.0},
+        "glances": {"container_cpu_use": 11.1, "container_memory_use": 149.6},
+    },
     "raid": {
         "md3": {
             "status": "active",

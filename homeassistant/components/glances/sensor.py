@@ -223,6 +223,21 @@ SENSOR_TYPES = {
         device_class=SensorDeviceClass.DATA_SIZE,
         state_class=SensorStateClass.MEASUREMENT,
     ),
+    ("containers", "container_cpu_use"): GlancesSensorEntityDescription(
+        key="container_cpu_use",
+        type="containers",
+        translation_key="single_container_cpu_usage",
+        native_unit_of_measurement=PERCENTAGE,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    ("containers", "container_memory_use"): GlancesSensorEntityDescription(
+        key="container_memory_use",
+        type="containers",
+        translation_key="single_container_memory_used",
+        native_unit_of_measurement=UnitOfInformation.MEBIBYTES,
+        device_class=SensorDeviceClass.DATA_SIZE,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
     ("raid", "available"): GlancesSensorEntityDescription(
         key="available",
         type="raid",
@@ -303,7 +318,15 @@ async def async_setup_entry(
     entities: list[GlancesSensor] = []
 
     for sensor_type, sensors in coordinator.data.items():
-        if sensor_type in ["fs", "diskio", "sensors", "raid", "gpu", "network"]:
+        if sensor_type in [
+            "fs",
+            "diskio",
+            "sensors",
+            "containers",
+            "raid",
+            "gpu",
+            "network",
+        ]:
             entities.extend(
                 GlancesSensor(
                     coordinator,

@@ -58,6 +58,12 @@
       "raid_used": {
         "default": "mdi:harddisk"
       },
+      "single_container_cpu_usage": {
+        "default": "mdi:docker"
+      },
+      "single_container_memory_used": {
+        "default": "mdi:docker"
+      },
       "swap_free": {
         "default": "mdi:memory"
       },

@@ -110,6 +110,12 @@
       "raid_used": {
         "name": "{sensor_label} used"
       },
+      "single_container_cpu_usage": {
+        "name": "Container CPU usage"
+      },
+      "single_container_memory_used": {
+        "name": "Container memory used"
+      },
       "swap_free": {
         "name": "Swap free"
       },
